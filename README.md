@@ -8,12 +8,7 @@
     - [Abstraction](#abstraction)
     - [Inheritance](#inheritance)
     - [Polymorphism](#polymorphism)
-3. [Code Examples](#code-examples)
-    - [Encapsulation Example](#encapsulation-example)
-    - [Abstraction Example](#abstraction-example)
-    - [Inheritance Example](#inheritance-example)
-    - [Polymorphism Example](#polymorphism-example)
-4. [Interview Problems](#interview-problems)
+3. [Interview Problems](#interview-problems)
 
 ## Introduction
 
