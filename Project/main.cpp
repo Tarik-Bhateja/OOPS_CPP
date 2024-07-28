@@ -115,26 +115,54 @@ void HotelMgnt::checkIn() {
             }
 
             cout << "\nEnter booking ID: ";
-            cin >> rooms[i].cust.booking_id;
+            while (!(cin >> rooms[i].cust.booking_id)) {
+                cin.clear(); // clear the fail state
+                cin.ignore(numeric_limits<streamsize>::max(), '\n'); // discard invalid input
+                cout << "Invalid input. Please enter a valid booking ID: ";
+            }
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
             cout << "\nEnter Customer Name: ";
             getline(cin, rooms[i].cust.name);
+            if (rooms[i].cust.name.empty()) {
+                cout << "Customer name cannot be empty.";
+                return;
+            }
 
             cout << "\nEnter Address: ";
             getline(cin, rooms[i].cust.address);
+            if (rooms[i].cust.address.empty()) {
+                cout << "Address cannot be empty.";
+                return;
+            }
 
             cout << "\nEnter Phone: ";
             getline(cin, rooms[i].cust.phone);
+            if (rooms[i].cust.phone.empty()) {
+                cout << "Phone cannot be empty.";
+                return;
+            }
 
             cout << "\nEnter From Date: ";
             getline(cin, rooms[i].cust.from_date);
+            if (rooms[i].cust.from_date.empty()) {
+                cout << "From Date cannot be empty.";
+                return;
+            }
 
             cout << "\nEnter To Date: ";
             getline(cin, rooms[i].cust.to_date);
+            if (rooms[i].cust.to_date.empty()) {
+                cout << "To Date cannot be empty.";
+                return;
+            }
 
             cout << "\nEnter Advance Payment: ";
-            cin >> rooms[i].cust.payment_advance;
+            while (!(cin >> rooms[i].cust.payment_advance) || rooms[i].cust.payment_advance < 0) {
+                cin.clear(); // clear the fail state
+                cin.ignore(numeric_limits<streamsize>::max(), '\n'); // discard invalid input
+                cout << "Invalid input. Please enter a valid advance payment: ";
+            }
 
             rooms[i].status = 1;
             cout << "\nCustomer Checked-in Successfully.";
@@ -144,12 +172,12 @@ void HotelMgnt::checkIn() {
     cout << "\nRoom not found";
 }
 
+
 void HotelMgnt::getAvailRoom() {
     bool found = false;
     for (int i = 0; i < roomCount; i++) {
         if (rooms[i].status == 0) {
             displayRoom(rooms[i]);
-            cout << "\n\nPress enter for next room";
             found = true;
         }
     }
@@ -163,7 +191,6 @@ void HotelMgnt::searchCustomer(const string &pname) {
         if (rooms[i].status == 1 && rooms[i].cust.name == pname) {
             cout << "\nCustomer Name: " << rooms[i].cust.name;
             cout << "\nRoom Number: " << rooms[i].roomNumber;
-            cout << "\n\nPress enter for next record";
             return;
         }
     }
@@ -177,6 +204,7 @@ void HotelMgnt::checkOut(int roomNum) {
             float billAmount;
             cout << "\nEnter Number of Days: ";
             cin >> days;
+
             billAmount = days * rooms[i].rent;
 
             cout << "\n\t######## CheckOut Details ########\n";
@@ -211,6 +239,11 @@ void manageRooms() {
             case 1:
                 cout << "\nEnter Room Number: ";
                 cin >> rno;
+                if(rno<0)
+                {
+                cout << "\nPlease enter a valid Room Number";
+                break;
+                }
                 flag = 0;
                 for (int i = 0; i < roomCount; i++) {
                     if (rooms[i].roomNumber == rno) {
