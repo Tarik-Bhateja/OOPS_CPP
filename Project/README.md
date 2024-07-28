@@ -1,5 +1,5 @@
 # Hotel Management System
-
+<img src="https://img.freepik.com/free-vector/organic-flat-new-normal-hotels_23-2148929457.jpg?w=1060&t=st=1722186932~exp=1722187532~hmac=1cbc2ac2cd9302be30959163d99f06c00a70f14dbaa439a2fd3e19fbe975c573">
 This project is a simple Hotel Management System implemented in C++ that demonstrates various object-oriented programming concepts. It allows users to manage rooms, check in and check out customers, and view room availability and customer information.
 
 ## Features
