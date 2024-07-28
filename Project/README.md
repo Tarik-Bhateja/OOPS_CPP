@@ -23,7 +23,7 @@ This project is a simple Hotel Management System implemented in C++ that demonst
 - `booking_id`: Unique booking ID for the customer
 
 ### Room Class
-- `type`: Room type (AC/Non-AC)
+- `type`: Room type (Supreme/Normal)
 - `stype`: Room size (Big/Small)
 - `ac`: Whether the room is AC or Non-AC
 - `roomNumber`: Unique room number
